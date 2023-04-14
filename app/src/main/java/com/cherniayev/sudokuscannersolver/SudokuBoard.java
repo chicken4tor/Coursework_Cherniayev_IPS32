@@ -11,7 +11,11 @@ import androidx.annotation.Nullable;
 
 public class SudokuBoard extends View {
     private final int boardColor;
+    private final int cellFillColor;
+    private final int cellHighligthColor;
     private final Paint boardColorPaint = new Paint();
+    private final Paint cellFillColorPaint = new Paint();
+    private final Paint cellHighligthColorPaint = new Paint();
     private int cellSize;
 
     public SudokuBoard(Context context, @Nullable AttributeSet attrs) {
@@ -23,7 +27,9 @@ public class SudokuBoard extends View {
 
         //Екстрактимо атрибути щоб присвоїти їх нашим змінним у коді
         try {
-            boardColor = a.getInteger(R.styleable.SudokuBoard_boardColour, 0);
+            boardColor = a.getInteger(R.styleable.SudokuBoard_boardColor, 0);
+            cellFillColor = a.getInteger(R.styleable.SudokuBoard_cellFillColor, 0);
+            cellHighligthColor = a.getInteger(R.styleable.SudokuBoard_cellHighlightColor, 0);
         } finally {
             a.recycle();
         }
@@ -47,6 +53,14 @@ public class SudokuBoard extends View {
         //Paint bucket
         boardColorPaint.setColor(boardColor);
         boardColorPaint.setAntiAlias(true);
+
+        cellFillColorPaint.setStyle(Paint.Style.FILL);
+        cellFillColorPaint.setAntiAlias(true);
+        cellFillColorPaint.setColor(cellFillColor);
+
+        cellHighligthColorPaint.setStyle(Paint.Style.FILL);
+        cellHighligthColorPaint.setAntiAlias(true);
+        cellHighligthColorPaint.setColor(cellHighligthColor);
 
         canvas.drawRect(0, 0, getWidth(), getHeight(), boardColorPaint);
         drawField(canvas);
