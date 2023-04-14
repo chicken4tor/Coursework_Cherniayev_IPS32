@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ public class SudokuBoard extends View {
     private final Paint cellFillColorPaint = new Paint();
     private final Paint cellHighligthColorPaint = new Paint();
     private int cellSize;
+    private final Solver solver = new Solver();
 
     public SudokuBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -64,6 +66,41 @@ public class SudokuBoard extends View {
 
         canvas.drawRect(0, 0, getWidth(), getHeight(), boardColorPaint);
         drawField(canvas);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean isValid;
+
+        float x = event.getX();
+        float y = event.getY();
+
+        int action = event.getAction();
+
+        if (action == MotionEvent.ACTION_DOWN) {
+            solver.setSelectedRow((int) Math.ceil(y/cellSize));
+            solver.setSelectedColumn((int) Math.ceil(x/cellSize));
+            isValid = true;
+        } else {
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    private void colorCell(Canvas canvas, int row, int column) {
+        if (solver.getSelectedRow() != -1 && solver.getSelectedColumn() != -1) {
+            canvas.drawRect((column - 1) * cellSize, 0, column * cellSize,
+                    cellSize * 9, cellHighligthColorPaint);
+
+            canvas.drawRect(0, (row - 1) * cellSize, cellSize * 9,
+                    row * cellSize, cellHighligthColorPaint);
+
+            canvas.drawRect((column - 1) * cellSize, (row - 1) * cellSize,
+                    column * cellSize, row * cellSize, cellHighligthColorPaint);
+        }
+
+        invalidate();
     }
 
     private void drawField(Canvas canvas) {
