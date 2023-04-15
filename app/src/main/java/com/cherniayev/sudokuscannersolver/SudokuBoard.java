@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,9 +16,17 @@ public class SudokuBoard extends View {
     private final int boardColor;
     private final int cellFillColor;
     private final int cellHighligthColor;
+
+    private final int numberColor;
+    private final int numberColorSolved;
+
     private final Paint boardColorPaint = new Paint();
     private final Paint cellFillColorPaint = new Paint();
     private final Paint cellHighligthColorPaint = new Paint();
+    private final Paint numberPaint = new Paint();
+
+    private final Rect numberPaintBounds = new Rect();
+
     private int cellSize;
     private final Solver solver = new Solver();
 
@@ -33,6 +42,8 @@ public class SudokuBoard extends View {
             boardColor = a.getInteger(R.styleable.SudokuBoard_boardColor, 0);
             cellFillColor = a.getInteger(R.styleable.SudokuBoard_cellFillColor, 0);
             cellHighligthColor = a.getInteger(R.styleable.SudokuBoard_cellHighlightColor, 0);
+            numberColor = a.getInteger(R.styleable.SudokuBoard_numberColor, 0);
+            numberColorSolved = a.getInteger(R.styleable.SudokuBoard_numberColorSolved, 0);
         } finally {
             a.recycle();
         }
@@ -124,7 +135,8 @@ public class SudokuBoard extends View {
             } else {
                 drawThinLine();
             }
-            canvas.drawLine(0, cellSize * r, getWidth(), cellSize * r, boardColorPaint);
+            canvas.drawLine(0, cellSize * r, getWidth(),
+                    cellSize * r, boardColorPaint);
         }
     }
 
@@ -138,5 +150,10 @@ public class SudokuBoard extends View {
         boardColorPaint.setStyle(Paint.Style.STROKE);
         boardColorPaint.setStrokeWidth(4);
         boardColorPaint.setColor(boardColor);
+    }
+
+    private void drawNumbers(Canvas canvas) {
+
+        
     }
 }
