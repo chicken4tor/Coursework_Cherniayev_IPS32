@@ -10,21 +10,18 @@ public class Solver {
         selectedColumn = -1;
     }
 
-    public static int getSelectedRow() {
+    public int getSelectedRow() {
         return selectedRow;
     }
 
-    public static void setSelectedRow(int selectedRow) {
-        Solver.selectedRow = selectedRow;
+    public void setSelectedRow(int r) {
+        selectedRow = r;
     }
 
-    public static int getSelectedColumn() {
+    public int getSelectedColumn() {
         return selectedColumn;
     }
 
-    public static void setSelectedColumn(int selectedColumn) {
-        Solver.selectedColumn = selectedColumn;
-    }
-
+    public void setSelectedColumn(int c) { selectedColumn = c; }
 
 }

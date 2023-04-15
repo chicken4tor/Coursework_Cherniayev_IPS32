@@ -1,5 +1,6 @@
 package com.cherniayev.sudokuscannersolver;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -64,10 +65,12 @@ public class SudokuBoard extends View {
         cellHighligthColorPaint.setAntiAlias(true);
         cellHighligthColorPaint.setColor(cellHighligthColor);
 
+        colorCell(canvas, solver.getSelectedRow(), solver.getSelectedColumn());
         canvas.drawRect(0, 0, getWidth(), getHeight(), boardColorPaint);
         drawField(canvas);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         boolean isValid;
@@ -97,7 +100,7 @@ public class SudokuBoard extends View {
                     row * cellSize, cellHighligthColorPaint);
 
             canvas.drawRect((column - 1) * cellSize, (row - 1) * cellSize,
-                    column * cellSize, row * cellSize, cellHighligthColorPaint);
+                    column * cellSize, row * cellSize, cellFillColorPaint);
         }
 
         invalidate();
