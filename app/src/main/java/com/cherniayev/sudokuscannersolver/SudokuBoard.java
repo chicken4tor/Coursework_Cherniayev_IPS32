@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -11,6 +12,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class SudokuBoard extends View {
     private final int boardColor;
@@ -76,9 +79,14 @@ public class SudokuBoard extends View {
         cellHighligthColorPaint.setAntiAlias(true);
         cellHighligthColorPaint.setColor(cellHighligthColor);
 
+        numberPaint.setStyle(Paint.Style.FILL);
+        numberPaint.setAntiAlias(true);
+        numberPaint.setColor(numberColor);
+
         colorCell(canvas, solver.getSelectedRow(), solver.getSelectedColumn());
         canvas.drawRect(0, 0, getWidth(), getHeight(), boardColorPaint);
         drawField(canvas);
+        drawNumbers(canvas);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -154,6 +162,46 @@ public class SudokuBoard extends View {
 
     private void drawNumbers(Canvas canvas) {
 
-        
+        numberPaint.setTextSize(cellSize);
+        numberPaint.setColor(Color.BLACK);
+
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                if (solver.getBoard()[r][c] != 0) {
+                    String text = Integer.toString(solver.getBoard()[r][c]);
+                    float width, height;
+
+                    numberPaint.getTextBounds(text, 0, text.length(), numberPaintBounds);
+
+                    width = numberPaint.measureText(text);
+                    height = numberPaintBounds.height();
+                    canvas.drawText(text, (c * cellSize) + ((cellSize - width) / 2),
+                            (r * cellSize+cellSize) - ((cellSize - height) / 2), numberPaint);
+                }
+            }
+        }
+
+        for (ArrayList<Object> number : solver.getEmptyBoxIndex()) {
+            int r = (int) number.get(0);
+            int c = (int) number.get(1);
+
+            String text = Integer.toString(solver.getBoard()[r][c]);
+            float width, height;
+
+            numberPaint.getTextBounds(text, 0, text.length(), numberPaintBounds);
+
+            width = numberPaint.measureText(text);
+            height = numberPaintBounds.height();
+            canvas.drawText(text, (c * cellSize) + ((cellSize - width) / 2),
+                    (r*cellSize+cellSize) - ((cellSize - height) / 2), numberPaint);
+        }
+    }
+
+    private void drawTextInCell() {
+
+    }
+
+    public Solver getSolver() {
+        return this.solver;
     }
 }

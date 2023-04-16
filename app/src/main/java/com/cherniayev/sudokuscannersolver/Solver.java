@@ -25,7 +25,7 @@ public class Solver {
         emptyBoxIndex = new ArrayList<>();
     }
 
-    private void getEmptyBoardIndxs() {
+    private void getEmptyBoxIndexes() {
         for (int r = 0; r < 9; r++) {
             for (int c = 0; c < 9; c++) {
                 if (this.board[r][c] == 0) {
@@ -37,15 +37,15 @@ public class Solver {
         }
     }
 
-    private void setNumberPosition(int num) {
+    public void setNumberPosition(int num) {
         if (this.selectedRow != -1 && this.selectedColumn != -1) {
             //Якщо користувач помилився, то він може натиснути на той самий номер у вибраній
             //клітинці щоб зробити клітинку знов пустою
-            if (this.board[this.selectedRow][this.selectedColumn] == num) {
-                this.board[this.selectedRow][this.selectedColumn] = 0;
+            if (this.board[this.selectedRow-1][this.selectedColumn-1] == num) {
+                this.board[this.selectedRow-1][this.selectedColumn-1] = 0;
             } else {
                 //В зворотньому випадку присвоїти клітинці значення, яке вибрав користувач
-                this.board[this.selectedRow][this.selectedColumn] = num;
+                this.board[this.selectedRow-1][this.selectedColumn-1] = num;
             }
         }
     }
@@ -53,6 +53,8 @@ public class Solver {
     public int[][] getBoard(){
         return this.board;
     }
+
+    public ArrayList<ArrayList<Object>> getEmptyBoxIndex() {return this.emptyBoxIndex;}
 
     public int getSelectedRow() {
         return selectedRow;

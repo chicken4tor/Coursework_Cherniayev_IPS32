@@ -35,9 +35,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonOnePress"
             android:text="@string/One"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button2"
@@ -45,9 +46,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonTwoPress"
             android:text="@string/Two"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button3"
@@ -55,9 +57,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonThreePress"
             android:text="@string/Three"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button4"
@@ -65,9 +68,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonFourPress"
             android:text="@string/Four"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button5"
@@ -75,9 +79,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonFivePress"
             android:text="@string/Five"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button6"
@@ -85,9 +90,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonSixPress"
             android:text="@string/Six"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button7"
@@ -95,9 +101,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonSevenPress"
             android:text="@string/Seven"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button8"
@@ -105,9 +112,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonEightPress"
             android:text="@string/Eight"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button9"
@@ -115,9 +123,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="buttonNinePress"
             android:text="@string/Nine"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
     </LinearLayout>
 
