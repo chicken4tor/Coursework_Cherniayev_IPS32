@@ -130,4 +130,53 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/scanButton"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="buttonScanPress"
+            android:text="@string/Scan" />
+
+        <Button
+            android:id="@+id/solveButton"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="buttonSolvePress"
+            android:text="@string/Solve" />
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="buttonClearPress"
+            android:text="@string/Clear" />
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="buttonCreatePress"
+            android:text="@string/Create" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

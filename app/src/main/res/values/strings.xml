@@ -11,4 +11,8 @@
     <string name="Eight">8</string>
     <string name="Nine">9</string>
 
+    <string name="Scan">Scan</string>
+    <string name="Clear">Clear</string>
+    <string name="Solve">Solve</string>
+    <string name="Create">Create</string>
 </resources>

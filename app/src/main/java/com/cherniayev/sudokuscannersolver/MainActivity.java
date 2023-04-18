@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     private SudokuBoard gameBoard;
     private Solver gameBoardSolver;
+
+    private Button solveButton, createButton, scanButton, clearButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
         gameBoard = findViewById(R.id.SudokuBoard);
         gameBoardSolver = gameBoard.getSolver();
+
+        solveButton = findViewById(R.id.solveButton);
+        createButton = findViewById(R.id.createButton);
+        scanButton = findViewById(R.id.scanButton);
+        clearButton = findViewById(R.id.clearButton);
     }
 
     public void buttonOnePress(View view) {
@@ -62,5 +70,21 @@ public class MainActivity extends AppCompatActivity {
     public void buttonNinePress(View view) {
         gameBoardSolver.setNumberPosition(9);
         gameBoard.invalidate();
+    }
+
+    public void buttonSolvePress(View view) {
+
+    }
+
+    public void buttonScanPress(View view) {
+
+    }
+
+    public void buttonClearPress(View view) {
+
+    }
+
+    public void buttonCreatePress(View view) {
+
     }
 }
