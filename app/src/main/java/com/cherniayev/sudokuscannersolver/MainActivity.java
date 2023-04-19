@@ -73,7 +73,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonSolvePress(View view) {
+        gameBoardSolver.getEmptyBoxIndexes();
 
+        SolveBoardThread solveBoardThread = new SolveBoardThread();
+
+        new Thread(solveBoardThread).start();
+
+        gameBoard.invalidate();
     }
 
     public void buttonScanPress(View view) {
@@ -81,10 +87,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonClearPress(View view) {
-
+        gameBoardSolver.cleanBoard();
+        gameBoard.invalidate();
     }
 
     public void buttonCreatePress(View view) {
 
+    }
+
+    class SolveBoardThread implements Runnable {
+        @Override
+        public void run() {
+            gameBoardSolver.solveSudoku(gameBoard);
+        }
     }
 }

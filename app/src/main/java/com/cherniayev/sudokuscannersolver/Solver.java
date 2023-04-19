@@ -25,7 +25,7 @@ public class Solver {
         emptyBoxIndex = new ArrayList<>();
     }
 
-    private void getEmptyBoxIndexes() {
+    public void getEmptyBoxIndexes() {
         for (int r = 0; r < 9; r++) {
             for (int c = 0; c < 9; c++) {
                 if (this.board[r][c] == 0) {
@@ -70,7 +70,7 @@ public class Solver {
 
                 for (int r = boxRow * 3; r < boxRow * 3 + 3; r++) {
                     for (int c = boxColumn * 3; c < boxColumn * 3 + 3; c++) {
-                        if (this.board[r][c] == this.board[row][boxColumn]
+                        if (this.board[r][c] == this.board[row][column]
                                 && row != r && column != c) {
                             return false;
                         }
@@ -80,6 +80,50 @@ public class Solver {
         }
 
         return true;
+    }
+
+    public boolean solveSudoku(SudokuBoard display) {
+        int row = -1, column = -1;
+
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                if (this.board[r][c] == 0) {
+                    row = r;
+                    column = c;
+                    break;
+                }
+            }
+        }
+
+        if (row == -1 || column == -1) {
+            return true;
+        }
+
+        for (int i = 1; i < 10; i++) {
+            this.board[row][column] = i;
+            display.invalidate();
+
+            if (checkСorrectness(row, column)) {
+                if (solveSudoku(display)) {
+                    return true;
+                }
+            }
+
+            this.board[row][column] = 0;
+        }
+
+        return false;
+
+    }
+
+    public void cleanBoard() {
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                board[r][c] = 0;
+            }
+        }
+
+        this.emptyBoxIndex = new ArrayList<>();
     }
 
     public int[][] getBoard() {
