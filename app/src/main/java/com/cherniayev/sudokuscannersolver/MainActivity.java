@@ -3,8 +3,24 @@ package com.cherniayev.sudokuscannersolver;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
+import org.opencv.imgproc.Imgproc;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         createButton = findViewById(R.id.createButton);
         scanButton = findViewById(R.id.scanButton);
         clearButton = findViewById(R.id.clearButton);
+    }
+
+    static {
+        if (OpenCVLoader.initDebug()) {
+            Log.d("Check", "OpenCv configured successfully");
+        } else {
+            Log.d("Check", "OpenCv doesn’t configured successfully");
+        }
     }
 
     public void buttonOnePress(View view) {
