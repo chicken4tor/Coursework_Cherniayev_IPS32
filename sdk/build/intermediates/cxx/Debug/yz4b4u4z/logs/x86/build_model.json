@@ -126,7 +126,7 @@
         "rootBuildGradleFolder": "C:\\Users\\andre\\Desktop\\COURSEWORK\\Coursework_Cherniayev_IPS32",
         "sdkFolder": "C:\\Users\\andre\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
-        "ideBuildTargetAbi": "x86",
+        "ideBuildTargetAbi": "x86,armeabi-v7a,armeabi",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },

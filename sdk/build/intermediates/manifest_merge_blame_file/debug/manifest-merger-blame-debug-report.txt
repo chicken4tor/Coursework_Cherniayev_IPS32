@@ -5,4 +5,24 @@
 5    <uses-sdk android:minSdkVersion="21" />
 5-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml
 6
-7</manifest>
+7    <uses-permission android:name="android.permission.CAMERA" />
+7-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:5:5-64
+7-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:5:22-62
+8    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+8-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:6:5-71
+8-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:6:22-68
+9    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+9-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:7:5-80
+9-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:7:22-77
+10    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+10-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:8:5-81
+10-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:8:22-78
+11
+12    <uses-feature
+12-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:9:5-88
+13        android:name="android.hardware.camera.any"
+13-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:9:19-61
+14        android:required="true" />
+14-->C:\Users\andre\Desktop\COURSEWORK\Coursework_Cherniayev_IPS32\sdk\java\AndroidManifest.xml:9:62-85
+15
+16</manifest>
