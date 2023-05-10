@@ -56,6 +56,24 @@ public class activity_camera extends CameraActivity {
     }
 
     @Override
+    protected void onResume(){
+        super.onResume();
+        cameraBridgeViewBase.enableView();
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        cameraBridgeViewBase.disableView();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        cameraBridgeViewBase.disableView();
+    }
+
+    @Override
     protected List<? extends CameraBridgeViewBase> getCameraViewList() {
         return Collections.singletonList(cameraBridgeViewBase);
     }
