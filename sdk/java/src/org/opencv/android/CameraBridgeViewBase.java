@@ -395,6 +395,12 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         }
     }
 
+    int userRotation= 90;
+
+    public void setUserRotation(int userRotation) {
+        this.userRotation = userRotation;
+    }
+
     /**
      * This method shall be called by the subclasses when they have valid
      * object and want it to be delivered to external client (via callback) and
@@ -426,6 +432,8 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
             Canvas canvas = getHolder().lockCanvas();
             if (canvas != null) {
                 canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+                canvas.save();
+                canvas.rotate(userRotation,  (canvas.getWidth()/ 2),(canvas.getHeight()/ 2));
                 if (BuildConfig.DEBUG)
                     Log.d(TAG, "mStretch value: " + mScale);
 
@@ -447,6 +455,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
                     mFpsMeter.measure();
                     mFpsMeter.draw(canvas, 20, 30);
                 }
+                canvas.restore();
                 getHolder().unlockCanvasAndPost(canvas);
             }
         }

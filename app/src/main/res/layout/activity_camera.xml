@@ -7,8 +7,7 @@
     tools:context=".activity_camera">
 
     <org.opencv.android.JavaCameraView
-        android:layout_height="match_parent"
+        android:id="@+id/cameraView"
         android:layout_width="match_parent"
-        android:id="@+id/cameraView"/>
-
+        android:layout_height="match_parent" />
 </RelativeLayout>
