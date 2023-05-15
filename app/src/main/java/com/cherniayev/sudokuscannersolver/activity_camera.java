@@ -1,24 +1,18 @@
 package com.cherniayev.sudokuscannersolver;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.Manifest;
-import android.hardware.Camera;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.core.Preview;
-import android.view.Surface;
 
 import org.opencv.android.CameraActivity;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 
-import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
 
