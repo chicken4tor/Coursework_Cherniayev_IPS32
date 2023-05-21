@@ -9,7 +9,7 @@ public class Solver {
     ArrayList<ArrayList<Object>> emptyBoxIndex;
     int selectedRow;
     int selectedColumn;
-    int K = 20; // No. Of missing digits
+    int K = 20; // кілкість пустих клітинок
 
     Solver() {
         selectedRow = -1;
@@ -137,27 +137,26 @@ public class Solver {
     // Sudoku Generator
     public void fillValues()
     {
-        // Fill the diagonal of SRN x SRN matrices
+        // Заповнити діагоналі 9 х 9
         fillDiagonal();
 
-        // Fill remaining blocks
+        // Заповнити залишившиїся блоки
         fillRemaining(0, 3);
 
-        // Remove Randomly K digits to make game
+        // Видалити К клітинок щоб створити гру
         removeKDigits();
     }
 
-    // Fill the diagonal SRN number of SRN x SRN matrices
     void fillDiagonal()
     {
 
         for (int i = 0; i<9; i=i+3)
 
-            // for diagonal box, start coordinates->i==j
+            // для діагональних клітинок, початкові координати->i==j
             fillBox(i, i);
     }
 
-    // Returns false if given 3 x 3 block contains num.
+    // Повернути false якщо 3 x 3 блок містить num.
     boolean unUsedInBox(int rowStart, int colStart, int num)
     {
         for (int i = 0; i<3; i++)
@@ -168,7 +167,7 @@ public class Solver {
         return true;
     }
 
-    // Fill a 3 x 3 matrix.
+    // Заповнити 3 x 3 матрицю.
     void fillBox(int row,int col)
     {
         int num;
@@ -193,7 +192,6 @@ public class Solver {
         return (int) Math.floor((Math.random()*num+1));
     }
 
-    // Check if safe to put in cell
     boolean CheckIfSafe(int i,int j,int num)
     {
         return (unUsedInRow(i, num) &&
@@ -201,7 +199,7 @@ public class Solver {
                 unUsedInBox(i-i%3, j-j%3, num));
     }
 
-    // check in the row for existence
+    // первірити в рядку наявність
     boolean unUsedInRow(int i,int num)
     {
         for (int j = 0; j<9; j++)
@@ -210,7 +208,7 @@ public class Solver {
         return true;
     }
 
-    // check in the row for existence
+    // перевірити в колонці наявність
     boolean unUsedInCol(int j,int num)
     {
         for (int i = 0; i<9; i++)
@@ -219,8 +217,7 @@ public class Solver {
         return true;
     }
 
-    // A recursive function to fill remaining
-    // matrix
+    // Рекурсивна функція щоб заповнити матрицб
     boolean fillRemaining(int i, int j)
     {
         //  System.out.println(i+" "+j);
@@ -267,8 +264,7 @@ public class Solver {
         return false;
     }
 
-    // Remove the K no. of digits to
-    // complete game
+    // Прибрати K клітинок для завершення
     public void removeKDigits()
     {
         int count = K;
@@ -277,7 +273,7 @@ public class Solver {
             int cellId = randomGenerator(9*9)-1;
 
             // System.out.println(cellId);
-            // extract coordinates i  and j
+            // витягти координати i та j
             int i = (cellId/9);
             int j = cellId%9;
             if (j != 0)

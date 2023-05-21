@@ -181,6 +181,7 @@ public class SudokuBoard extends View {
             }
         }
 
+
         for (ArrayList<Object> number : solver.getEmptyBoxIndex()) {
             int r = (int) number.get(0);
             int c = (int) number.get(1);
