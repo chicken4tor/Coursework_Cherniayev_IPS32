@@ -140,7 +140,7 @@ public class Solver {
         // Заповнити діагоналі 9 х 9
         fillDiagonal();
 
-        // Заповнити залишившиїся блоки
+        // Заповнити інші блоки
         fillRemaining(0, 3);
 
         // Видалити К клітинок щоб створити гру
@@ -154,17 +154,6 @@ public class Solver {
 
             // для діагональних клітинок, початкові координати->i==j
             fillBox(i, i);
-    }
-
-    // Повернути false якщо 3 x 3 блок містить num.
-    boolean unUsedInBox(int rowStart, int colStart, int num)
-    {
-        for (int i = 0; i<3; i++)
-            for (int j = 0; j<3; j++)
-                if (board[rowStart+i][colStart+j]==num)
-                    return false;
-
-        return true;
     }
 
     // Заповнити 3 x 3 матрицю.
@@ -199,6 +188,16 @@ public class Solver {
                 unUsedInBox(i-i%3, j-j%3, num));
     }
 
+    // Повернути false якщо 3 x 3 блок містить num.
+    boolean unUsedInBox(int rowStart, int colStart, int num)
+    {
+        for (int i = 0; i<3; i++)
+            for (int j = 0; j<3; j++)
+                if (board[rowStart+i][colStart+j]==num)
+                    return false;
+
+        return true;
+    }
     // первірити в рядку наявність
     boolean unUsedInRow(int i,int num)
     {
